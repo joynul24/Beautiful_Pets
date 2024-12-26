@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/44c614560c.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Bautiful Pets</title>
+    <link rel="stylesheet" href="styles/pet.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="w-11/12 mx-auto px-2 lg:px-0">
+      <nav class="flex justify-between items-center mt-5">
+        <!-- nav logo -->
+        <div class="flex items-center gap-2">
+          <div><img class="w-full" src="images/logo.webp" /></div>
+          <h2 class="lg:text-3xl lg:font-black font-semibold">Peddy</h2>
+        </div>
+        <!-- nav items -->
+        <div class="flex gap-2 lg:gap-8 items-center">
+          <p class="nav-item opacity-70 cursor-pointer">Home</p>
+          <p class="nav-item opacity-70 cursor-pointer">Shop</p>
+          <p class="nav-item opacity-70 cursor-pointer">Contact</p>
+        </div>
+        <!-- nav right logo -->
+        <div class="border-2 border-blue-400 rounded-full">
+          <img class="cursor-pointer w-7 lg:w-full" src="images/user.png" />
+        </div>
+      </nav>
+      <!-- Banner Section -->
+      <div class="text-center space-y-4 lg:space-y-8 mt-7 lg:mt-14">
+        <h5 class="lg:text-2xl font-bold opacity-70">
+          Bringing Families Together ❤️‍🔥
+        </h5>
+        <h1 class="text-3xl lg:text-7xl font-black text-[#131313]">
+          Your Path to Adoption <br />
+          Starts Here
+        </h1>
+        <p class="opacity-70 w-11/12 mx-auto lg:max-w-3xl">
+          Pets is the largest category of animals for sale on the Web site. We
+          definitely love our pets here in Bangladesh! But with so many
+          different ones to choose from, how do you decide which one is right
+          for you?
+        </p>
+        <!-- banner button -->
+        <a href="#categories-btns"
+          ><button class="bg-[#0E7A81] text-white mt-4 btn hover:bg-green-500">
+            View More
+          </button></a
+        >
+      </div>
+    </header>
+
+    <main class="w-11/12 mx-auto px-1 lg:px-0">
+      <!-- Banner two pets img and content -->
+      <div>
+        <div class="flex justify-center mt-5 lg:mt-12">
+          <img class="" src="images/pet.webp" alt="" />
+        </div>
+        <!-- img content -->
+        <div class="text-center space-y-3 lg:space-y-6">
+          <h3 class="text-2xl lg:text-4xl font-black">
+            Adopt Your Best Friend
+          </h3>
+          <p class="opacity-70 w-11/12 mx-auto lg:max-w-3xl">
+            When you have made a decision about what animal you want to buy,
+            make sure that you prepare for the pet before you bring it home. It
+            should have a clean, comfortable place to sleep, appropriate food,
+            and toys to keep it entertained.
+          </p>
+        </div>
+      </div>
+
+      <!-- All Categories Pet Buttons -->
+      <div
+        id="categories-btns"
+        class="flex flex-col lg:flex-row lg:justify-center gap-10 my-10"
+      ></div>
+
+      <!-- API Load Section -->
+      <div class="flex justify-between items-center mt-8">
+        <h2 class="text-xl lg:text-2xl font-black">Best Deal For you</h2>
+        <div>
+          <button class="bg-[#0E7A81] text-white btn hover:bg-green-600">
+            Sort by Price
+          </button>
+        </div>
+      </div>
+
+      <!-- show spinner section -->
+      <div
+        id="show-spinner"
+        class="hidden peer-focus:flex text-center justify-center my-5"
+      >
+        <span class="loading loading-bars loading-lg"></span>
+      </div>
+
+      <section class="grid lg:grid-cols-4 gap-6 my-8">
+        <!-- Show Categories allCards -->
+        <div
+          class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          id="cards"
+        ></div>
+
+        <!-- show single image Section -->
+        <div class="lg:col-span-1">
+          <div
+            id="sigle-img-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5"
+          ></div>
+        </div>
+      </section>
+
+      <!-- sho Adopt modal -->
+      <div id="show-adopt">
+        <!-- Open the modal using ID.showModal() method -->
+      </div>
+
+      <div id="modal-container">
+        <!-- Open the modal  method -->
+      </div>
+    </main>
+
+    <footer class="bg-[#131313] text-white py-12 lg:py-24 mt-14">
+      <div class="footer justify-between w-11/12 mx-auto">
+        <nav class="space-y-1">
+          <div class="flex items-center gap-2">
+            <div><img class="w-full" src="images/logo.webp" /></div>
+            <h2 class="lg:text-3xl lg:font-black font-semibold">Peddy</h2>
+          </div>
+          <p>Location: av. Washington 165, NY CA 54003</p>
+          <p>Phone: +31 85 964 47 25</p>
+          <p>Email: info@yourdomain.com</p>
+          <p>Openings hours: 9.00 AM - 5.00 PM</p>
+          <div>
+            <img src="images/social-img.png" alt="" />
+          </div>
+        </nav>
+        <nav class="">
+          <h6 class="footer-title">Useful Links</h6>
+          <a class="link link-hover hover:text-red-400">Home</a>
+          <a class="link link-hover hover:text-red-400">About Us</a>
+          <a class="link link-hover hover:text-red-400">Animals</a>
+          <a class="link link-hover hover:text-red-400">Foundation</a>
+          <a class="link link-hover hover:text-red-400">Contact</a>
+        </nav>
+        <nav>
+          <h3 class="footer-title text-xl font-bold mb-5 lg:mb-8">
+            Drop a Message
+          </h3>
+          <div class="flex flex-col gap-4">
+            <input
+              type="text"
+              placeholder="Enter your email"
+              class="input bg-[#FFFFFF0D] input-bordered w-full max-w-xs"
+            />
+            <button
+              class="btn btn-wide w-full lg:w-auto bg-[#0E7A81] text-white border-none hover:bg-green-500"
+            >
+              Subscribe
+            </button>
+          </div>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- script file -->
+    <script src="styles/pet.css"></script>
+  </body>
+</html>
