@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     ></script>
     <title>Bautiful Pets</title>
-    <link rel="stylesheet" href="styles/pet.css" />
+    <link rel="stylesheet" href="styles/pet.css">
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css"
       rel="stylesheet"
@@ -17,7 +17,7 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="font-lato">
     <header class="w-11/12 mx-auto px-2 lg:px-0">
       <nav class="flex justify-between items-center mt-5">
         <!-- nav logo -->
@@ -82,8 +82,8 @@
 
       <!-- All Categories Pet Buttons -->
       <div
-        id="categories-btns"
-        class="flex flex-col lg:flex-row lg:justify-center gap-10 my-10"
+        id="btn-categories"
+        class="flex flex-col lg:flex-row lg:justify-center gap-5 my-10"
       ></div>
 
       <!-- API Load Section -->
@@ -105,11 +105,12 @@
       </div>
 
       <section class="grid lg:grid-cols-4 gap-6 my-8">
-        <!-- Show Categories allCards -->
-        <div
+        <!-- Show Categories allCardsPets -->
+        <div id="allPetCards"
           class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          id="cards"
-        ></div>
+        >
+        <!-- Dynamic pets cards here... -->
+      </div>
 
         <!-- show single image Section -->
         <div class="lg:col-span-1">
@@ -122,11 +123,9 @@
 
       <!-- sho Adopt modal -->
       <div id="show-adopt">
-        <!-- Open the modal using ID.showModal() method -->
       </div>
 
       <div id="modal-container">
-        <!-- Open the modal  method -->
       </div>
     </main>
 
@@ -172,8 +171,8 @@
         </nav>
       </div>
     </footer>
-
+    
     <!-- script file -->
-    <script src="styles/pet.css"></script>
+    <script src="js/pet.js"></script>
   </body>
 </html>
