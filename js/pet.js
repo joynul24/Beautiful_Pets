@@ -141,9 +141,9 @@ const showPetDetails = async (petId) => {
        <img class="rounded-lg h-full w-full" src="${image}"/>
       </div>
 
-      <div class="mt-6 flex items-center gap-6">
+      <div class="mt-5 flex items-center gap-6">
          <div>
-          <h2 class="text-2xl font-bold">${pet_name}</h2>
+          <h2 class="text-xl lg:text-2xl font-bold">${pet_name}</h2>
           <p class="mt-2 opacity-70"><i class="fa-solid fa-qrcode mr-2"></i>Breed: ${breed ? breed : 'Not available'}</p>
            <p class="mt-2 opacity-70"><i class="fa-solid fa-mercury mr-2"></i>Gender: ${gender ? gender : "Not available"}</p>
            <p class="mt-2 opacity-70"><i class="fa-solid fa-mercury mr-2"></i>vaccinated status: ${vaccinated_status ? vaccinated_status : "Not available"}</p>
@@ -154,7 +154,7 @@ const showPetDetails = async (petId) => {
          </div>
       </div>
 
-      <h2 class="mt-8 mb-4 font-semibold">Details Information</h2>
+      <h2 class="mt-5 mb-3 font-semibold">Details Information</h2>
       <p class=" opacity-70">${pet_details}</p>
 
     <div class="modal-action flex flex-col">
