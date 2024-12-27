@@ -37,8 +37,7 @@ const displayAllCards = (datas) => {
 
     `;
         return;
-
-    }
+}
 
     datas.forEach(data => {
         // console.log(data);
