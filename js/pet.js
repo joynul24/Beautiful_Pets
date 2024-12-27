@@ -86,7 +86,7 @@ const displayAllCards = (datas) => {
        <div class="flex justify-between mt-4">
          <button onclick= showSingleImg('${image}') class="btn btn-sm hover:text-white hover:bg-[#0E7A81]"><i class="fa-solid fa-thumbs-up"></i></button>
          <button onclick= showAdopt() class="btn btn-sm hover:bg-[#0E7A81] hover:text-white">Adopt</button>
-         <button onclick= cardDetails('${petId}')  class="btn btn-sm hover:bg-[#0E7A81] hover:text-white">Details</button>
+         <button onclick= showPetDetails('${petId}')  class="btn btn-sm hover:bg-[#0E7A81] hover:text-white">Details</button>
        </div>
     </div>
      </div>
@@ -123,6 +123,52 @@ const showSingleImg = (img) => {
       <img class="rounded-lg h-full w-full" src="${img}" alt="pet"/>
     `;
     singleImgContainer.append(div);
+}
+
+
+const showPetDetails = async (petId) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`);
+    const data = await res.json();
+    const { breed, category, date_of_birth, gender, image, pet_details, pet_name, price, vaccinated_status } = data.petData
+
+    const showModalContainer = document.getElementById('modal-container');
+    showModalContainer.innerHTML = `
+     
+     <dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+
+      <div class="flex justify-center">
+       <img class="rounded-lg h-full w-full" src="${image}"/>
+      </div>
+
+      <div class="mt-6 flex items-center gap-6">
+         <div>
+          <h2 class="text-2xl font-bold">${pet_name}</h2>
+          <p class="mt-2 opacity-70"><i class="fa-solid fa-qrcode mr-2"></i>Breed: ${breed ? breed : 'Not available'}</p>
+           <p class="mt-2 opacity-70"><i class="fa-solid fa-mercury mr-2"></i>Gender: ${gender ? gender : "Not available"}</p>
+           <p class="mt-2 opacity-70"><i class="fa-solid fa-mercury mr-2"></i>vaccinated status: ${vaccinated_status ? vaccinated_status : "Not available"}</p>
+         </div>
+         <div>
+          <p class="opacity-70"><i class="fa-regular fa-calendar mr-2"></i>Birth: ${date_of_birth ? date_of_birth : "Not available"}</p>
+           <p class="mt-2 opacity-70"><i class="fa-solid fa-dollar-sign mr-2"></i>Price: ${price ? price : "Not found"}$</p>
+         </div>
+      </div>
+
+      <h2 class="mt-8 mb-4 font-semibold">Details Information</h2>
+      <p class=" opacity-70">${pet_details}</p>
+
+    <div class="modal-action flex flex-col">
+      <form method="dialog">
+        <button class="btn w-full bg-[#0E7A811A] text-[#0E7A81]">Cancel</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+ `;
+
+    my_modal_1.showModal();
+
 }
 
 
