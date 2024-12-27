@@ -12,8 +12,17 @@ const displayAllPets = async () => {
 }
 
 
+
+const displayCategoryPets  = async(category) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`);
+    const data = await res.json()
+    displayAllCards(data.data);
+}
+
+
 const displayAllCards = (datas) => {
     const displayAllPetContainer = document.getElementById('allPetCards');
+    displayAllPetContainer.innerText = '';
     datas.forEach(data => {
         // console.log(data);
         const { pet_name, petId, breed, category, date_of_birth, price, image, gender, pet_details, vaccinated_status } = data;
@@ -43,17 +52,19 @@ const displayAllCards = (datas) => {
 
     displayAllPetContainer.append(div);
 
-    });
+});
+
 }
 
 
 const displayCategory = (categories) => {
     const btnCategoryContainer = document.getElementById('btn-categories')
     categories.forEach(category => {
+        // console.log(category);
         const div = document.createElement('div');
         div.innerHTML = `
          
-        <button class="btn category-btn bg-white flex items-center gap-4 rounded-full border px-14 pb-5 w-full">
+        <button onclick = displayCategoryPets('${category.category}') class="btn category-btn bg-white flex items-center gap-4 rounded-full border px-14 pb-5 w-full">
         <p class="text-xl font-bold h-full">${category.category}</p>
         <img class="w-10" src="${category.category_icon}" alt=""/>
         </button>
