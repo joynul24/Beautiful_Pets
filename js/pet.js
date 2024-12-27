@@ -1,3 +1,4 @@
+
 const loadCategories = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/peddy/categories');
     const data = await res.json();
@@ -6,23 +7,48 @@ const loadCategories = async () => {
 
 
 const displayAllPets = async () => {
+    loadSpinner(true);
     const res = await fetch('https://openapi.programming-hero.com/api/peddy/pets');
     const data = await res.json();
-    displayAllCards(data.pets);
+
+    setTimeout(() => {
+        displayAllCards(data.pets);
+        loadSpinner(false);
+    }, 2000);
+}
+
+
+
+// loading spinner
+const loadSpinner = (show) => {
+    const showSpinner = document.getElementById('show-spinner');
+    if (show) {
+        showSpinner.classList.remove('hidden');
+        document.getElementById('allPetCards').innerText = '';
+    }
+    else {
+        showSpinner.classList.add('hidden');
+    }
 }
 
 
 
 const displayCategoryPets = async (category) => {
+    loadSpinner(true);
     const res = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`);
     const data = await res.json()
-    displayAllCards(data.data);
+
+    setTimeout(() => {
+        displayAllCards(data.data);
+        loadSpinner(false);
+    }, 2000);
 }
 
 
 const displayAllCards = (datas) => {
     const displayAllPetContainer = document.getElementById('allPetCards');
-    displayAllPetContainer.innerText = '';
+    // displayAllPetContainer.innerText = '';
+
 
     if (datas.length == 0) {
         displayAllPetContainer.innerHTML = `
@@ -37,7 +63,7 @@ const displayAllCards = (datas) => {
 
     `;
         return;
-}
+    }
 
     datas.forEach(data => {
         // console.log(data);
