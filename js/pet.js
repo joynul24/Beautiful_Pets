@@ -34,6 +34,11 @@ const loadSpinner = (show) => {
 
 
 const displayCategoryPets = async (category) => {
+    // remove active button if exist
+    removeActiveClasses()
+    // show active button
+    activeButtonClasses(category);
+
     loadSpinner(true);
     const res = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`);
     const data = await res.json()
@@ -106,7 +111,7 @@ const displayCategory = (categories) => {
         const div = document.createElement('div');
         div.innerHTML = `
          
-        <button onclick = displayCategoryPets('${category.category}') class="btn category-btn bg-white flex items-center gap-4 rounded-full border px-14 pb-5 w-full">
+        <button id="btn-${category.category}" onclick = displayCategoryPets('${category.category}') class="btn category-btn bg-white flex items-center gap-4 rounded-full border px-14 pb-5 w-full">
         <p class="text-xl font-bold h-full">${category.category}</p>
         <img class="w-10" src="${category.category_icon}" alt=""/>
         </button>
@@ -169,6 +174,22 @@ const showPetDetails = async (petId) => {
 
     my_modal_1.showModal();
 
+}
+
+
+// Remove active button styles
+const removeActiveClasses = () => {
+    const allButtons = document.querySelectorAll('.category-btn');
+    // console.log(allButtons);
+    for (btn of allButtons) {
+        btn.classList.remove('bg-emerald-100', 'rounded-full', 'border-[#0E7A81]', 'border-2');
+    }
+}
+
+// Add active classes
+const activeButtonClasses = category => {
+    const activeButton = document.getElementById(`btn-${category}`);
+    activeButton.classList.add('bg-emerald-100', 'rounded-full', 'border-[#0E7A81]', 'border-2');
 }
 
 
