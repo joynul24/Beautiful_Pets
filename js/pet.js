@@ -84,7 +84,7 @@ const displayAllCards = (datas) => {
        <p class="opacity-70"><i class="fa-solid fa-mercury mr-2"></i>Gender: ${gender ? gender : "Not available"}</p>
        <p class="opacity-70"><i class="fa-solid fa-dollar-sign mr-2"></i>Price: ${price ? price : "Not found"}$</p>
        <div class="flex justify-between mt-4">
-         <button onclick= showSinglePic('${image}') class="btn btn-sm hover:text-white hover:bg-[#0E7A81]"><i class="fa-solid fa-thumbs-up"></i></button>
+         <button onclick= showSingleImg('${image}') class="btn btn-sm hover:text-white hover:bg-[#0E7A81]"><i class="fa-solid fa-thumbs-up"></i></button>
          <button onclick= showAdopt() class="btn btn-sm hover:bg-[#0E7A81] hover:text-white">Adopt</button>
          <button onclick= cardDetails('${petId}')  class="btn btn-sm hover:bg-[#0E7A81] hover:text-white">Details</button>
        </div>
@@ -116,7 +116,14 @@ const displayCategory = (categories) => {
 }
 
 
-
+const showSingleImg = (img) => {
+    const singleImgContainer = document.getElementById('sigle-img-container');
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <img class="rounded-lg h-full w-full" src="${img}" alt="pet"/>
+    `;
+    singleImgContainer.append(div);
+}
 
 
 
