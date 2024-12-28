@@ -1,3 +1,5 @@
+let storedPetsData = [];
+
 
 const loadCategories = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/peddy/categories');
@@ -13,6 +15,7 @@ const displayAllPets = async () => {
 
     setTimeout(() => {
         displayAllCards(data.pets);
+        storedPetsData = data.pets
         loadSpinner(false);
     }, 2000);
 }
@@ -45,6 +48,7 @@ const displayCategoryPets = async (category) => {
 
     setTimeout(() => {
         displayAllCards(data.data);
+        storedPetsData = data.data
         loadSpinner(false);
     }, 2000);
 }
@@ -212,6 +216,18 @@ const adoptModal = event => {
             event.disabled = true;
         }
     }, 1000);
+}
+
+
+
+// handle sort data 
+const sort = () => {
+    loadSpinner(true);
+    const sortedData = storedPetsData.sort((a, b) => b.price - a.price);
+    setTimeout(() => {
+        displayAllCards(sortedData);
+        loadSpinner(false);
+    }, 500);
 }
 
 
