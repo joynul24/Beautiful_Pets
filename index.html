@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     ></script>
     <title>Bautiful Pets</title>
-    <link rel="stylesheet" href="styles/pet.css">
+    <link rel="stylesheet" href="styles/pet.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css"
       rel="stylesheet"
@@ -101,20 +101,23 @@
         id="show-spinner"
         class="hidden peer-focus:flex text-center justify-center mt-10"
       >
-       <!-- Spinner -->
-       <div class="relative flex justify-center items-center">
-        <div class="absolute animate-spin rounded-full h-14 w-14 border-t-4 border-b-4 border-[#0E7A81]"></div>
-        <img src="./images/logo.webp">
-     </div>
+        <!-- Spinner -->
+        <div class="relative flex justify-center items-center">
+          <div
+            class="absolute animate-spin rounded-full h-14 w-14 border-t-4 border-b-4 border-[#0E7A81]"
+          ></div>
+          <img src="./images/logo.webp" />
+        </div>
       </div>
 
       <section class="grid lg:grid-cols-4 gap-6 my-8">
         <!-- Show Categories allCardsPets -->
-        <div id="allPetCards"
+        <div
+          id="allPetCards"
           class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-        <!-- Dynamic pets cards here... -->
-      </div>
+          <!-- Dynamic pets cards here... -->
+        </div>
 
         <!-- show single image Section -->
         <div class="lg:col-span-1">
@@ -127,10 +130,23 @@
 
       <!-- sho Adopt modal -->
       <div id="show-adopt">
+        <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <h5 class="text-green-600 text-center">
+              <i class="text-4xl fa-solid fa-handshake"></i>
+            </h5>
+            <h3 class="text-center mt-3 text-4xl font-black">Congrates</h3>
+            <p class="text-center mt-3 py-4">
+              Adoption Process is Started for your Pet
+            </p>
+            <p id="countdown-container" class="text-4xl font-black text-center text-red-700">3</p>
+          </div>
+        </dialog>
       </div>
 
-      <div id="modal-container">
-      </div>
+      <div id="modal-container"></div>
     </main>
 
     <footer class="bg-[#131313] text-white py-12 lg:py-24 mt-14">
@@ -175,7 +191,7 @@
         </nav>
       </div>
     </footer>
-    
+
     <!-- script file -->
     <script src="js/pet.js"></script>
   </body>

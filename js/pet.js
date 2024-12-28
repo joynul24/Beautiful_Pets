@@ -90,7 +90,7 @@ const displayAllCards = (datas) => {
        <p class="opacity-70"><i class="fa-solid fa-dollar-sign mr-2"></i>Price: ${price ? price : "Not found"}$</p>
        <div class="flex justify-between mt-4">
          <button onclick= showSingleImg('${image}') class="btn btn-sm hover:text-white hover:bg-[#0E7A81]"><i class="fa-solid fa-thumbs-up"></i></button>
-         <button onclick= showAdopt() class="btn btn-sm hover:bg-[#0E7A81] hover:text-white">Adopt</button>
+         <button onclick= adoptModal(this) class="btn btn-sm hover:bg-[#0E7A81] hover:text-white">Adopt</button>
          <button onclick= showPetDetails('${petId}')  class="btn btn-sm hover:bg-[#0E7A81] hover:text-white">Details</button>
        </div>
     </div>
@@ -186,10 +186,32 @@ const removeActiveClasses = () => {
     }
 }
 
+
+
 // Add active classes
 const activeButtonClasses = category => {
     const activeButton = document.getElementById(`btn-${category}`);
     activeButton.classList.add('bg-emerald-100', 'rounded-full', 'border-[#0E7A81]', 'border-2');
+}
+
+
+
+// Adopt Button Functionality
+const adoptModal = event => {
+    let count = 3;
+    const countContainer = document.getElementById('countdown-container');
+    countContainer.innerText = count;
+    my_modal_5.showModal()
+    const interval = setInterval(() => {
+        count--;
+        if (count !== 0) countContainer.innerText = count;
+        if (count < 1) {
+            clearInterval(interval)
+            my_modal_5.close();
+            event.textContent = "Adopted";
+            event.disabled = true;
+        }
+    }, 1000);
 }
 
 
