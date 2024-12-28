@@ -201,13 +201,13 @@ const adoptModal = event => {
     let count = 3;
     const countContainer = document.getElementById('countdown-container');
     countContainer.innerText = count;
-    my_modal_5.showModal()
+    my_modal_2.showModal()
     const interval = setInterval(() => {
         count--;
         if (count !== 0) countContainer.innerText = count;
         if (count < 1) {
             clearInterval(interval)
-            my_modal_5.close();
+            my_modal_2.close();
             event.textContent = "Adopted";
             event.disabled = true;
         }
